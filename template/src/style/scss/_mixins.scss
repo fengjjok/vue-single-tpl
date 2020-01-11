@@ -1,0 +1,94 @@
+/* mixins 为scss函数，调用方式为 
+ * 例：.foo{
+     @include ellipsis-mixin(2)  如果没有参数  括号部分可省略
+ }
+*/
+
+/* ========================================================================================= */
+
+/**
+    *多行文本溢出省略显示 
+*/
+@mixin ellipsis-mixin($lines) {
+    @if $lines == 1{ 
+      overflow: hidden;
+      text-overflow:ellipsis;
+      white-space: nowrap;
+    } @else {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: $lines;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+}
+/**
+    *imageSrc 路径
+    *width 宽度
+    *height 高度
+*/
+@mixin bgImg($imageSrc, $width: 100%, $height: 100%, $repeat: no-repeat, $position: center) {
+    background: url($imageSrc) $repeat $position;
+    background-size: $width $height;
+}
+/**
+    *1像素全边框
+*/
+@mixin border-onepx-round($color, $borRa) {
+    position: relative;
+    &::after {
+        width: 200%;
+        height: 200%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        display: block;
+        -webkit-transform: scale(0.5);
+        -webkit-transform-origin: 0 0;
+        -webkit-box-sizing: border-box;
+        pointer-events: none;
+        border:1px solid $color;
+        border-radius: $borRa;
+    }
+}
+/**
+    *1像素左右边框
+*/
+@mixin border-onepx-lfri($color, $posi) {
+    position: relative;
+    &::after {
+        width: 1px;
+        height: 200%;
+        position: absolute;
+        top: 0;
+        #{$posi}: 0;
+        content: "";
+        display: block;
+        -webkit-transform: scale(0.5);
+        -webkit-transform-origin: 0 0;
+        -webkit-box-sizing: border-box;
+        pointer-events: none;
+        border-#{$posi}:1px solid $color;
+    }
+}
+/**
+    *1像素上下边框
+*/
+@mixin border-onepx-topbo($color, $posi) {
+    position: relative;
+    &::after {
+        width: 200%;
+        height: 1px;
+        position: absolute;
+        left: 0;
+        #{$posi}: 0;
+        content: "";
+        display: block;
+        -webkit-transform: scale(0.5);
+        -webkit-transform-origin: 0 0;
+        -webkit-box-sizing: border-box;
+        pointer-events: none;
+        border-#{$posi}:1px solid $color;
+    }
+}

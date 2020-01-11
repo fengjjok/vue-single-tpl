@@ -1,0 +1,65 @@
+/**
+ * 左右浮动元素
+ */
+ .fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+/**
+ * 避免因子元素浮动而导致父元素高度缺失
+ */
+.clear:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clear {
+  zoom: 1;
+}
+/* 元素垂直水平居中 父级元素添加 */
+.vertical-hori-center{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+
+.slide-right-enter-active,
+.slide-right-leave-active,
+.slide-left-enter-active,
+.slide-left-leave-active {
+  transition: all .2s;
+}
+.slide-right-enter {
+  transform: translateX(-100%);
+}
+.slide-left-enter {
+  transform: translateX(100%);
+}
+
+/**
+ * 动画 浅入浅出
+ */
+.fadesd-enter-active,
+.fadesd-leave-active {
+  transition: all .2s ease;
+}
+.fadesd-enter
+.fadesd-leave-active {
+  opacity: 0
+}
+
+

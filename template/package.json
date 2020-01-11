@@ -1,0 +1,72 @@
+{
+  "name": "feng-template",
+  "version": "0.1.0",
+  "description": "A Vue.js project",
+  "author": "jingjing <>",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "preview": "vue-cli-service build --mode preview",
+    "build": "vue-cli-service build --mode production",
+    "analyzer-pre": "use_analyzer=true npm run preview",
+    "analyzer-pro": "use_analyzer=true npm run build",
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "core-js": "^3.4.3",
+    "fastclick": "^1.0.6",
+    {{#if_eq platform "mobile"}}
+    "lib-flexible": "^0.3.2",
+    {{/if_eq}}
+    "lodash": "^4.17.15",
+    "md5": "^2.2.1",
+    "mockjs": "^1.1.0",
+    "normalize.css": "^8.0.1",
+    "vant": "^2.2.16",
+    "vue": "^2.6.10",
+    "vue-router": "^3.1.3"{{#if vuex}},
+    "vuex": "^3.1.2"
+    {{/if}}
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.1.0",
+    "@vue/cli-plugin-eslint": "^4.1.0",
+    "@vue/cli-plugin-router": "^4.1.0",
+    "@vue/cli-plugin-unit-jest": "^4.1.0",
+    "@vue/cli-plugin-vuex": "^4.1.0",
+    "@vue/cli-service": "^4.1.0",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "babel-eslint": "^10.0.3",
+    "babel-plugin-import": "^1.13.0",
+    "babel-plugin-lodash": "^3.3.4",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "lint-staged": "^9.4.3",
+    "node-sass": "^4.12.0",
+    "postcss-pxtorem": "^4.0.1",
+    "sass-loader": "^8.0.0",
+    "sass-resources-loader": "^2.0.1",
+    "vue-cli-plugin-vconsole": "^1.0.1",
+    "vue-template-compiler": "^2.6.10",
+    "webpack-bundle-analyzer": "^3.6.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "jest": {
+    "preset": "@vue/cli-plugin-unit-jest"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
+}

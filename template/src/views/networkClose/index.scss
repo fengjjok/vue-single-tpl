@@ -1,0 +1,25 @@
+.netWork{
+  padding-top: rem(109);
+  .netWork-main{
+    margin-top:rem(36);
+    .img{
+      width:rem(212);
+      height:rem(172.5);
+      margin: 0 auto;
+      background: url("./img/netWorkClose_icon.png") no-repeat center top;
+      background-size: cover;
+    }
+    >p{
+      margin-top:rem(41.5);
+      font-size:rem(16);
+      color: #999;
+      font-family: 'PingFang-SC-Medium';
+      line-height: rem(30);
+      text-align: center;
+    }
+    >.btn{
+      margin-top:rem(86.5);
+      text-align: center;
+    }
+  }
+}
