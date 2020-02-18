@@ -53,15 +53,15 @@ function http (obj) {
       baseURL: BASEURL,
       method: obj.type ? obj.type : 'get',
       url: obj.url,
-      params: obj.data,
-      data: obj.data,
       transformRequest: [function (data) {
         let ret = ''
         for (let it in data) {
-          ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
+          ret += ret ? '&' : ''
+          ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it])
         }
         return ret
       }],
+      [obj.type && obj.type.toLocaleLowerCase() === 'post' ? 'data' : 'params']: obj.data,
       timeout: 7000,
       headers: { 'Content-Type': obj.dataType ? obj.dataType : 'application/x-www-form-urlencoded' }
     }).then(response => {

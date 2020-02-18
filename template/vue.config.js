@@ -4,6 +4,7 @@ const outputDir = `releases-${env}`
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 module.exports = {
   outputDir: outputDir,
+  publicPath: process.env.VUE_APP_SYS_PUBLICPATH,
   // assetsDir: 'static',
   css: {
     loaderOptions: {
@@ -52,7 +53,7 @@ module.exports = {
     // 查阅 https://github.com/vuejs/vue-docs-zh-cn/blob/master/vue-cli/cli-service.md#配置代理
     proxy: {
       '/api': {
-        target: 'https://bwx.txbapp.com/', // 后台接口域名
+        target: 'https://localhost', // 后台接口域名
         secure: true, // 如果是https接口，需要配置这个参数
         changeOrigin: true, // 是否跨域
         pathRewrite: {
