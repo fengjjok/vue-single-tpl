@@ -1,9 +1,9 @@
 const path = require('path')
 const env = process.env.VUE_APP_ENV
-const outputDir = `releases-${env}`
+// const outputDir = `releases-${env}`
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 module.exports = {
-  outputDir: outputDir,
+  outputDir: 'dist',
   publicPath: process.env.VUE_APP_SYS_PUBLICPATH,
   // assetsDir: 'static',
   css: {
