@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import apiUrl from '@request/apiUrl'
 export default {
   name: 'home',
   created () {
@@ -16,8 +15,9 @@ export default {
   },
   methods: {
     initData () {
+      // http请求示例
       this.$http({
-        url: apiUrl.get_goods,
+        url: this.$apiUrl.vip_scData,
         data: {
           gid: 267
         },
